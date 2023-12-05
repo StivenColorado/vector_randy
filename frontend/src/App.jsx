@@ -58,21 +58,12 @@ function App() {
                           <li><a href="index.html">Home</a></li>
                           <li><a href="about.html">About</a></li>
                           <li><a href="services.html">Services</a></li>
-                          <li><a href="portfolio.html">Portfolio</a></li>
-                          <li><a href="#">Page</a>
-                            <ul className="submenu">
-                              <li><a href="blog.html">Blog</a></li>
-                              <li><a href="blog_details.html">Blog Details</a></li>
-                              <li><a href="elements.html">Element</a></li>
-                              <li><a href="portfolio_details.html">Portfolio Details</a></li>
-                            </ul>
-                          </li>
                           <li><a href="contact.html">Contact</a></li>
                         </ul>
                       </nav>
                     </div>
                     <div className="header-right-btn f-right d-none d-xl-block ml-20">
-                      <a href="#" className="btn header-btn">Get Free Consultent</a>
+                      <a href="#" className="btn header-btn">Porftfolio</a>
                     </div>
                   </div>
                 </div>
