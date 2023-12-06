@@ -1,6 +1,6 @@
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-
+import { Link } from 'react-router-dom'
 import loder from '../assets/img/logo/loder.jpg'
 
 import logo from '../assets/img/logo/logo.png'
