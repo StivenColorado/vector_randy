@@ -3,8 +3,43 @@ import { Footer } from '../components/footer/Footer';
 import { Header } from '../components/header/Header';
 import '../css/gallery/gallery.scss';
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const Gallery = () => {
+export const Gallery_admin = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Función para obtener el valor de una cookie por su nombre
+    const getCookie = (name) => {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Verifica si la cookie comienza con el nombre proporcionado
+        if (cookie.startsWith(name + '=')) {
+          // Devuelve el valor de la cookie
+          return cookie.substring(name.length + 1);
+        }
+      }
+      // Devuelve null si no se encuentra la cookie
+      return null;
+    };
+
+    // Uso de la función para obtener el valor de la cookie "usuario"
+    const usuarioCookie = getCookie('usuario');
+
+    // Verificación y redirección
+    if (!usuarioCookie) {
+      // El usuario no está autenticado, redirige a la página de inicio (Home)
+      navigate('/');
+    }else{
+      console.log(usuarioCookie)
+    }
+  }, [navigate]); // Agrega `navigate` como dependencia para evitar advertencias
+
+  // 
+  // Resto del código de tu componente Gallery_admin
+  // ...
   const images = [
     {
       src: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',

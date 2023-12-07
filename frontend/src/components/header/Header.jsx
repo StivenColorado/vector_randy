@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import React from 'react'
 import logo from '../../assets/img/logo/logo.png'
+import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll';
+
 
 export const Header = () => {
     const [count, setCount] = useState(0)
@@ -18,25 +21,30 @@ export const Header = () => {
                     <div className="main-header  header-sticky">
                         <div className="container-fluid">
                             <div className="row align-items-center">
-                                <div className="col-xl-2 col-lg-2 col-md-1">
+                                {/* <div className="col-xl-2 col-lg-2 col-md-1">
                                     <div className="logo">
                                         <a href="index.html"><img src={logo} alt="" /></a>
                                     </div>
+                                </div> */}
+                                <div className="col-xl-2 col-lg-2 col-md-1">
+                                    <h3 style={{ fontWeight: 'bold' }}>
+                                        ✏️<span style={{ color: '#fe3d3e' }}>Future</span>  idea
+                                    </h3>
                                 </div>
                                 <div className="col-xl-10 col-lg-10 col-md-10">
                                     <div className="menu-main d-flex align-items-center justify-content-end">
                                         <div className="main-menu f-right d-none d-lg-block">
                                             <nav>
                                                 <ul id="navigation">
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About</a></li>
-                                                    <li><a href="services.html">Services</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li><Link to="/">Home</Link></li>
+                                                    <li><ScrollLink to="about_reference" smooth={true}>About</ScrollLink></li>
+                                                    <li><ScrollLink to="services_reference" smooth={true}>Services</ScrollLink></li>
+                                                    <li><ScrollLink to="contact_reference" smooth={true}>Contact</ScrollLink></li>
                                                 </ul>
                                             </nav>
                                         </div>
                                         <div className="header-right-btn f-right d-none d-xl-block ml-20">
-                                            <a href="#" className="btn header-btn">Porftfolio</a>
+                                            <Link to="/gallery" className="btn header-btn">Porftfolio</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +53,6 @@ export const Header = () => {
                                     <div className={`mobile_menu d-block d-lg-none ${menuVisible ? 'menu-visible' : ''}`}>
                                         <div className="slicknav_menu">
                                             <a
-                                                href="#"
                                                 aria-haspopup="true"
                                                 role="button"
                                                 className="slicknav_btn slicknav_collapsed"
@@ -64,32 +71,38 @@ export const Header = () => {
                                                 role="menu"
                                             >
                                                 <li>
-                                                    <a href="index.html" role="menuitem" tabIndex="-1">
+                                                    <a
+                                                        href="index.html"
+                                                        role="menuitem"
+                                                        tabIndex="-1"
+                                                        onClick={() => animateScroll.scrollToTop()}
+                                                    >
                                                         Home
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="about.html" role="menuitem" tabIndex="-1">
+                                                    <ScrollLink to="about_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         About
-                                                    </a>
+                                                    </ScrollLink>
                                                 </li>
                                                 <li>
-                                                    <a href="services.html" role="menuitem" tabIndex="-1">
+                                                    <ScrollLink to="services_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         Services
-                                                    </a>
+                                                    </ScrollLink>
                                                 </li>
                                                 <li>
-                                                    <a href="portfolio.html" role="menuitem" tabIndex="-1">
+                                                    <ScrollLink to="portfolio_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         Portfolio
-                                                    </a>
+                                                    </ScrollLink>
                                                 </li>
                                                 <li className="slicknav_collapsed slicknav_parent"></li>
                                                 <li>
-                                                    <a href="contact.html" role="menuitem" tabIndex="-1">
+                                                    <ScrollLink to="contact_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         Contact
-                                                    </a>
+                                                    </ScrollLink>
                                                 </li>
                                             </ul>
+
                                         </div>
                                     </div>
                                 </div>

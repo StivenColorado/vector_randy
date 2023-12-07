@@ -1,3 +1,4 @@
+// main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -5,17 +6,21 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import { Login } from './pages/login';
-
-// Importa createRoot desde react-dom/client
+import { Gallery } from './pages/gallery';
+import routes from './routes/routes.json';
 import { createRoot } from 'react-dom/client';
+import { Gallery_admin } from './pages/gallery_admin';
 
-// Utiliza createRoot de la manera adecuada
+
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/*" element={<App />} />
-        <Route path="/login" element={<Login />} />
+        <Route path={routes.login} element={<Login />} />
+        <Route path={routes.home} element={<App />} />
+        <Route path={routes.gallery} element={<Gallery />} />
+        <Route path={routes.gallery_admin} element={<Gallery_admin />} />
       </Routes>
       <ToastContainer />
     </Router>

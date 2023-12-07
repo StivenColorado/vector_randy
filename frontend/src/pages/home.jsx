@@ -23,16 +23,7 @@ export const Home = () => {
     
     return (
         <>
-            <div id="preloader-active">
-                <div className="preloader d-flex align-items-center justify-content-center">
-                    <div className="preloader-inner position-relative">
-                        <div className="preloader-circle"></div>
-                        <div className="preloader-img pere-text">
-                            <img src={logo} alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <Header/>
             <main>
                 <div className="slider-area ">
@@ -58,7 +49,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <section className="about-area section-paddingt30">
+                <section className="about-area section-paddingt30" id='about_reference'>
                     <div className="container">
                         <div className="row ">
                             <div className="col-lg-5">
@@ -83,56 +74,8 @@ export const Home = () => {
                     </div>
                 </section>
 
-                {/* 
-            <section className="categories-area section-padding3">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-6">
-                    <div className="section-tittle mb-70">
-                      <h2>What Services you will Get from me!</h2>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 col-sm-6">
-                    <div className="single-cat text-center mb-50">
-                      <div className="cat-icon">
-                        <span className="flaticon-pen"></span>
-                      </div>
-                      <div className="cat-cap">
-                        <h5><a href="services.html">UI/UX Design</a></h5>
-                        <p>Free resource that will help nderstand thecv designc process and improve theroi  nderstand the design process andisei impro are of vquality.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-6">
-                    <div className="single-cat text-center mb-50">
-                      <div className="cat-icon">
-                        <span className="flaticon-speaker"></span>
-                      </div>
-                      <div className="cat-cap">
-                        <h5><a href="services.html">Digital Marketing</a></h5>
-                        <p>Free resource that will help nderstand thecv designc process and improve theroi  nderstand the design process andisei impro are of vquality.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 col-sm-6">
-                    <div className="single-cat text-center mb-50">
-                      <div className="cat-icon">
-                        <span className="flaticon-portfolio"></span>
-                      </div>
-                      <div className="cat-cap">
-                        <h5><a href="services.html">Website Design</a></h5>
-                        <p>Free resource that will help nderstand thecv designc process and improve theroi  nderstand the design process andisei impro are of vquality.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section> */}
 
-
-                <section className="services-area  services-padding">
+                <section className="services-area  services-padding" id='services_reference'>
                     <div className="container">
                         <div className="project-heading mb-35">
                             <div className="row align-items-end">
@@ -369,7 +312,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </section>
-                <section className="wantToWork-area w-padding2">
+                <section className="wantToWork-area w-padding2" id='contact_reference'>
                     <div className="container">
                         <div className="row align-items-center justify-content-between">
                             <div className="col-xl-6 col-lg-8 col-md-8">

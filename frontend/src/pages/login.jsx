@@ -4,8 +4,10 @@ import { Header } from '../components/header/Header';
 import imgLogin from '../assets/img/service/services3.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -28,9 +30,11 @@ export const Login = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data.mensaje);
 
                 if (response.status === 200 && data.mensaje === 'Usuario válido') {
+                    // Establecer cookie después de una autenticación exitosa
+                    document.cookie = `usuario=${email}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/`;
+
                     toast.success(data.mensaje, {
                         position: "top-right",
                         autoClose: 3000,
@@ -41,6 +45,9 @@ export const Login = () => {
                         progress: undefined,
                         theme: "colored",
                     });
+                    setTimeout(() => {
+                        navigate('/gallery_admin');
+                    }, 3000);
                 } else if (response.status === 401 && data.mensaje === 'Credenciales incorrectas') {
                     toast.error(data.mensaje, {
                         position: "top-right",
