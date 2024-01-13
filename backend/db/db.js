@@ -1,5 +1,3 @@
-// db.js
-
 const fs = require('fs');
 const mysql = require('mysql');
 
