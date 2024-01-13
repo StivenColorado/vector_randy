@@ -65,31 +65,50 @@ const imagenes = (req, res) => {
         res.send({ imagenes });
     });
 };
-
 const cargarImagenes = (req, res) => {
-    const directorioImagenes = path.join(__dirname, '../', 'imagenes');
-
-    if (!fs.existsSync(directorioImagenes)) {
-        fs.mkdirSync(directorioImagenes);
-    }
-
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).json({ mensaje: 'No se proporcionó ninguna imagen' });
-    }
-
-    const imagen = req.files.imagen;
-
-    const rutaImagen = path.join(directorioImagenes, imagen.name);
-
     try {
-        fs.writeFileSync(rutaImagen, imagen.data);
+        const imagen = req.file;
+        console.log(`Imagen recibida: ${imagen.originalname}`);
 
-        res.status(200).json({ mensaje: 'Imagen cargada correctamente' });
+        const directorioImagenes = path.join(__dirname, '../', 'imagenes');
+        const rutaImagen = path.join(directorioImagenes, imagen.filename);
+        console.log(`TIPO DE DATO : ${typeof rutaImagen} de  ${rutaImagen}`)
+
+        fs.writeFile(rutaImagen, imagen.buffer, (err) => {
+            if (err) {
+                console.error('Error al cargar la imagen:', err);
+                res.status(500).json({ mensaje: 'Error interno del servidor al cargar la imagen' });
+            } else {
+                res.status(200).json({ mensaje: 'Imagen cargada correctamente' });
+            }
+        });
     } catch (error) {
         console.error('Error al cargar la imagen:', error);
         res.status(500).json({ mensaje: 'Error interno del servidor al cargar la imagen' });
     }
 };
+
+
+const eliminarImagen = (req, res) => {
+    try {
+        const nombreArchivo = req.body.nombreArchivo;
+        console.log(`nombre archivo HP: ${nombreArchivo}`)
+        const directorioImagenes = path.join(__dirname, '../', 'imagenes');
+        const rutaImagen = path.join(directorioImagenes, nombreArchivo);
+
+        // Verifica si el archivo existe antes de intentar eliminarlo
+        if (fs.existsSync(rutaImagen)) {
+            fs.unlinkSync(rutaImagen);
+            res.status(200).json({ mensaje: 'Imagen eliminada correctamente' });
+        } else {
+            res.status(404).json({ mensaje: 'La imagen no existe' });
+        }
+    } catch (error) {
+        console.error('Error al eliminar la imagen:', error);
+        res.status(500).json({ mensaje: 'Error interno del servidor al eliminar la imagen' });
+    }
+};
+
 
 module.exports = {
     root,
@@ -97,5 +116,5 @@ module.exports = {
     validar_usuario,
     imagenes,
     cargarImagenes,
-    // Agregar más funciones de controlador según sea necesario
+    eliminarImagen,
 };

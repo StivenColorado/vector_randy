@@ -11,7 +11,6 @@ app.use(cors())
 
 // Configuración para servir archivos estáticos desde la carpeta 'public'
 app.use('/api/imagenes', express.static(path.join(__dirname, 'imagenes')));
-
 // app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json()); // bodyParser.json() ya no es necesario con express v4.16.0 y superior
 app.use(express.urlencoded({ extended: true }));
