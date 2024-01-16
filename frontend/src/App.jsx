@@ -8,6 +8,7 @@ import { Login } from './pages/login';
 import { Home } from './pages/home';
 import { Loader } from './components/loader/loader';
 import { Gallery } from './pages/gallery';
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,13 +27,10 @@ const App = () => {
         <Loader />
       ) : (
         <>
-          {/* Remove the Navigate component if not needed */}
           <Routes>
-            <Route path={routes.home} element={<Home />} />
             <Route path={routes.login} element={<Login />} />
             <Route path={routes.gallery} element={<Gallery />} />
-            {/* Add a default redirect if needed */}
-            <Route path="/*" element={<Navigate to={routes.home} />} />
+            <Route path={routes.home} element={<Home />} />
           </Routes>
           <ToastContainer />
         </>

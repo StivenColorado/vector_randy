@@ -6,6 +6,99 @@
   gap: 16px;
 }
 
+.delete-button {
+  position: absolute;
+  right: 0;
+  background-color: red;
+  width: 2vw;
+  height: 4vh;
+  border: none;
+}
+
+.delete-button>svg {
+  color: white;
+}
+
+/* Estilo básico para el contenedor del formulario */
+#form-upload-files {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo básico para el contenedor del input de tipo file */
+.file-input-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 10px;
+  /* Añade margen entre el input y el botón */
+}
+
+/* Estilo básico para el botón que simulará el diseño del botón de carga */
+.file-input-button {
+  color: white;
+  background-color: #3498db;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Estilizar el input de tipo file */
+.file-input {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Estilizar el nombre del archivo seleccionado */
+.file-name {
+  margin-top: 5px;
+  /* Añade espacio entre el input y el nombre del archivo */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+/* Estilo para el botón de carga de imágenes */
+#load-files-button {
+  color: white;
+  height: 7vh;
+  border: none;
+  border-radius: .5rem;
+  background-color: rgb(85, 187, 141);
+  padding: 0 1em;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Estilizar el formulario */
+#form-upload-files {
+  margin: 20px;
+  /* Ajusta el margen del formulario según sea necesario */
+}
+
+@media (max-width:1200px) {
+  .delete-button {
+    background-color: red;
+    width: 5vw;
+    height: 4vh;
+  }
+}
+@media (max-width:500px) {
+  .delete-button {
+    background-color: red;
+    width: 8vw;
+    height: 5vh;
+  }
+}
+
 .my-masonry-grid_item {
   margin-bottom: 16px;
 
@@ -48,6 +141,8 @@
     height: 80vh;
     min-height: 460px;
     padding: max(2vh, 1.5rem);
+
+
 
     @media screen and (max-width: 690px) {
       height: 65vh;

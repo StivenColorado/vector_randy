@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 export const Footer = () => {
+
     return (
         <>
             <footer>
@@ -28,12 +29,13 @@ export const Footer = () => {
                                 <div className="col-xl-3 col-lg-4">
                                     <div className="footer-social f-right">
                                         <a>Stay Connected</a>
-                                        {/* <Link target="_blank" to="#"><i className="fab fa-twitter"></i></Link> */}
-                                        <Link target="_blank" to="https://www.facebook.com/profile.php?id=100010141906901"><i className="fab fa-facebook-f"></i></Link>
-                                        <Link target="_blank" to="https://wa.me/3218956487">
+                                    
+                                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100010141906901"><i className="fab fa-facebook-f"></i></a>
+                                        <a target="_blank" href="https://wa.me/3218956487">
                                             <i className="fab fa-whatsapp"></i>
-                                        </Link>
-                                        <Link target="_blank" to="https://www.instagram.com/randycc24/"><i className="fab fa-instagram"></i></Link>
+                                        </a>
+                                        <a target="_blank" href="https://www.instagram.com/randycc24/"><i className="fab fa-instagram"></i></a>
+                                    
                                     </div>
                                 </div>
                             </div>

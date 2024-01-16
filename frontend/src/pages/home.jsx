@@ -20,11 +20,19 @@ import { Footer } from '../components/footer/Footer'
 import { Header } from '../components/header/Header'
 
 export const Home = () => {
-    
+    const handleEmailButtonClick = () => {
+        const emailAddress = 'randycc24@hotmail.com'; // Reemplaza con tu dirección de correo electrónico
+        const subject = 'Consulta Ilustracion'; // Reemplaza con el asunto deseado
+
+        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}`;
+
+        // Abre el cliente de correo electrónico predeterminado del usuario con el enlace generado
+        window.location.href = mailtoLink;
+    };
     return (
         <>
-           
-            <Header/>
+
+            <Header />
             <main>
                 <div className="slider-area ">
                     <div className="slider-active">
@@ -65,7 +73,7 @@ export const Home = () => {
                                     <h3>Any Idea Can Build You & I .</h3>
                                     <p>Late talk with me</p>
                                     <div className="send-cv">
-                                        <a href="#">Randycc24@hotmail.com</a>
+                                        <a onClick={handleEmailButtonClick}>Randycc24@hotmail.com</a>
                                         <i className="ti-arrow-right"></i>
                                     </div>
                                 </div>
@@ -312,7 +320,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </section>
-                <section className="wantToWork-area w-padding2" id='contact_reference'>
+                {/* <section className="wantToWork-area w-padding2" id='contact_reference'>
                     <div className="container">
                         <div className="row align-items-center justify-content-between">
                             <div className="col-xl-6 col-lg-8 col-md-8">
@@ -325,9 +333,9 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
-                <div className="brand-area pb-bottom">
+                {/* <div className="brand-area pb-bottom">
                     <div className="container">
                         <div className="brand-active brand-border pt-50 pb-40">
                             <div className="single-brand">
@@ -347,7 +355,7 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
                 {/* <section className="contact-info-area w-padding2" data-background="assets/img/gallery/section_bg04.jpg">
@@ -374,7 +382,7 @@ export const Home = () => {
 
 
             </main>
-            <Footer/>
+            <Footer />
             <div id="back-top" >
                 <a title="Go to Top" href="#"> <i className="fas fa-level-up-alt"></i></a>
             </div>
