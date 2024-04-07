@@ -25,6 +25,7 @@ const upload = multer({ storage: storage });
 
 // Definir rutas y asignarlas a funciones del controlador
 router.post('/validar_usuario', controller.validar_usuario);
+router.get('/users', controller.user);
 router.post('/cargar_imagenes', upload.single('imagen'), controller.cargarImagenes);
 router.post('/eliminar_imagen', controller.eliminarImagen);
 
