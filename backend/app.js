@@ -8,19 +8,9 @@ const port = db.port;
 const host = db.host;
 const app = express();
 
-const allowedOrigins = ['*','https://vector-randy.onrender.com/api/validar_usuario','https://vector-randy.onrender.com/api/eliminar_imagen','https://vector-randy.onrender.com/api/imagenes/','https://vector-randy.onrender.com/api/cargar_imagenes'];
-
 app.use(cors({
-    origin: function(origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    },
-    credentials: true
+  origin: '*',
+  credentials: true
 }));
 
 // Resto de los middlewares
