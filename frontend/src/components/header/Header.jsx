@@ -72,7 +72,7 @@ export const Header = () => {
                                             >
                                                 <li>
                                                     <a
-                                                        href="index.html"
+                                                        href="/"
                                                         role="menuitem"
                                                         tabIndex="-1"
                                                         onClick={() => animateScroll.scrollToTop()}
@@ -80,6 +80,9 @@ export const Header = () => {
                                                         Home
                                                     </a>
                                                 </li>
+
+
+
                                                 <li>
                                                     <ScrollLink to="about_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         About
@@ -92,7 +95,9 @@ export const Header = () => {
                                                 </li>
                                                 <li>
                                                     <ScrollLink to="portfolio_reference" smooth={true} role="menuitem" tabIndex="-1">
-                                                        Portfolio
+                                                        <Link to="/gallery">
+                                                            Portfolio
+                                                        </Link>
                                                     </ScrollLink>
                                                 </li>
                                                 <li className="slicknav_collapsed slicknav_parent"></li>
