@@ -1,29 +1,31 @@
-const fs = require('fs');
-const mysql = require('mysql');
-// import  db from "../config/db.json" 
-const db  = require("../config/db.json")
+const { Client } = require('pg');
+// import db from "../config/db.json"
+const db = require("../config/db.json");
+
 function conectarBaseDeDatos() {
 
-    // Crea un pool de conexiones a la base de datos
-    const pool = mysql.createPool({
-        connectionLimit: 10, // Número máximo de conexiones en el pool
-        host: db.host,
-        user: db.user,
-        password: db.password,
-        database: db.database
+    // Crea un nuevo cliente PostgreSQL
+    const client = new Client({
+        connectionString: db.url,
+        ssl: { rejectUnauthorized: false } // Establece rejectUnauthorized a false para evitar errores con certificados SSL
     });
+
+    // Conectar al cliente PostgreSQL
+    client.connect()
+        .then(() => console.log('Conexión exitosa a Supabase'))
+        .catch(error => console.error('Error de conexión:', error));
 
     // Manejar eventos de cierre de la aplicación
     process.on('SIGINT', () => {
-        pool.end((err) => {
+        client.end((err) => {
             if (err) {
-                return console.error('Error al cerrar el pool de conexiones:', err);
+                return console.error('Error al cerrar el cliente PostgreSQL:', err);
             }
             process.exit();
         });
     });
 
-    return pool;
+    return client;
 }
 
 module.exports = conectarBaseDeDatos;

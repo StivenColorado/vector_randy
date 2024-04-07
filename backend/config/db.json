@@ -1,9 +1,4 @@
-
-
 {
-  "host": "aws-0-us-west-1.pooler.supabase.com",
-  "user": "postgres.tijmnreqmvtwhdrhrthu",
-  "password": "NTAgGOGNx0d6vBhC",
-  "database": "postgres",
-  "port": 5432
+  "url": "postgres://postgres.tijmnreqmvtwhdrhrthu:[NTAgGOGNx0d6vBhC]@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
 }
+
