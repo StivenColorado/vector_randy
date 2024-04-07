@@ -11,12 +11,8 @@ export const Gallery = () => {
 
   const traerImagenes = async () => {
     try {
-      // Obtener el host y puerto del servidor desde las variables de entorno
-      const serverHost = import.meta.env.VITE_SERVER_HOST || 'localhost';
-      const serverPort = import.meta.env.VITE_SERVER_PORT || '3000';
-
       // Construir la URL de la API de imágenes
-      const apiUrl = `http://${serverHost}:${serverPort}/api/imagenes`;
+      const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
 
       // Realizar la solicitud GET
       
@@ -30,7 +26,7 @@ export const Gallery = () => {
       const data = await response.json();
 
       // Construir las rutas completas de las imágenes
-      const imagenesConRutasCompletas = data.imagenes.map(imagen => `http://${serverHost}:${serverPort}${imagen}`);
+      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vector-randy.onrender.com:${imagen}`);
 
       // Establecer las imágenes en el estado
       setImages(imagenesConRutasCompletas);

@@ -44,9 +44,8 @@ export const Gallery_admin = () => {
 
   const traerImagenes = async () => {
     try {
-      const serverHost = import.meta.env.VITE_SERVER_HOST || 'localhost';
-      const serverPort = import.meta.env.VITE_SERVER_PORT || '3000';
-      const apiUrl = `http://${serverHost}:${serverPort}/api/imagenes`;
+      //https://vector-randy.onrender.com/api/imagenes/
+      const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
 
       const response = await fetch(apiUrl);
 
@@ -56,7 +55,7 @@ export const Gallery_admin = () => {
 
       const data = await response.json();
 
-      const imagenesConRutasCompletas = data.imagenes.map(imagen => `http://${serverHost}:${serverPort}${imagen}`);
+      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vector-randy.onrender.com:${imagen}`);
 
       setImages(imagenesConRutasCompletas);
     } catch (error) {
@@ -80,7 +79,7 @@ export const Gallery_admin = () => {
     try {
       const serverHost = import.meta.env.VITE_SERVER_HOST || 'localhost';
       const serverPort = import.meta.env.VITE_SERVER_PORT || '3300';
-      const apiUrl = `http://${serverHost}:${serverPort}/api/cargar_imagenes`;
+      const apiUrl = `https://vector-randy.onrender.com/api/cargar_imagenes`;
 
       const formData = new FormData();
       const input = document.getElementById('load-image');
@@ -113,9 +112,7 @@ export const Gallery_admin = () => {
 
   const handleEliminarImagen = async (nombreArchivo) => {
     try {
-      const serverHost = import.meta.env.VITE_SERVER_HOST || 'localhost';
-      const serverPort = import.meta.env.VITE_SERVER_PORT || '3300';
-      const apiUrl = `http://${serverHost}:${serverPort}/api/eliminar_imagen`;
+      const apiUrl = `https://vector-randy.onrender.com/api/eliminar_imagen`;
 
       const response = await fetch(apiUrl, {
         method: 'POST',
