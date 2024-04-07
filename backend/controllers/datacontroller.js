@@ -10,11 +10,11 @@ const root = (req, res) => {
 
 const obtenerUsuarios = (req, res) => {
     pool.query('SELECT * FROM usuarios', (error, results) => {
-        if (error) {
+        if (!error) {
+            res.send({ 'users': results })
+        } else {
             console.error('Error al obtener usuarios:', error);
             res.status(500).send('Error interno del servidor');
-        } else {
-            res.json(results);
         }
     });
 };
@@ -26,7 +26,8 @@ const user = (req, res) => {
             // Manejo de errores
             return res.status(500).json({ mensaje: 'Error al obtener usuarios' });
         } else {
-            return res.status(200).json(results);
+            // Devolver los resultados en formato JSON
+            res.status(200).json({ usuarios: results });
         }
     });
 }
@@ -77,6 +78,7 @@ const imagenes = (req, res) => {
         res.send({ imagenes });
     });
 };
+
 const cargarImagenes = (req, res) => {
     try {
         const imagen = req.file;
