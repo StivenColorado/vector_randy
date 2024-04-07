@@ -145,8 +145,8 @@ export const Gallery_admin = () => {
     <>
       <Header />
       <form id="form-upload-files" onSubmit={handleCargarImagenes} encType="multipart/form-data">
-        <div class="file-input-container">
-          <label for="load-image" class="file-input-button">Seleccionar Archivo</label>
+        <div className="file-input-container">
+          <label for="load-image" className="file-input-button">Seleccionar Archivo</label>
           <input
             type="file"
             name="imagen"

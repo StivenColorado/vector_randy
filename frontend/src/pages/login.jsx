@@ -10,6 +10,7 @@ export const Login = () => {
     const navigate = useNavigate();
     const [Email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -17,9 +18,9 @@ export const Login = () => {
         formData.append('correo', Email);
         formData.append('contrasena', password);
         console.log(`correo y contrasena en front: ${Email, password}`)
-
+    
         try {
-            fetch('https://vector-randy.onrender.com/api/validar_usuario', {
+            const response = await fetch('https://vector-randy.onrender.com/api/validar_usuario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

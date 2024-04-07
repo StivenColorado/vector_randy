@@ -1,3 +1,5 @@
+
+
 {
   "host": "aws-0-us-west-1.pooler.supabase.com",
   "user": "postgres.osdgdmjaplyxjozvatms",
@@ -5,4 +7,3 @@
   "database": "postgres",
   "port": 5432
 }
-
