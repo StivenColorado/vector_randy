@@ -9,9 +9,9 @@ const host = db.host;
 const app = express();
 
 // Configurar CORS para permitir todas las solicitudes desde cualquier origen
-app.use(cors({ 
-  credentials: true,
-  origin: 'http://localhost:5173' // Cambia esto por el origen permitido en tu caso
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 
 // Resto de los middlewares
