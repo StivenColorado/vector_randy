@@ -129,4 +129,5 @@ module.exports = {
     imagenes,
     cargarImagenes,
     eliminarImagen,
+    user,
 };
