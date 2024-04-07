@@ -8,7 +8,7 @@ const port = 3300;
 const host = db.host;
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'https://vector-randy.onrender.com/api/validar_usuario'];
+const allowedOrigins = ['http://localhost:5173', 'https://vector-randy.onrender.com/api/'];
 
 app.use(cors({
     origin: function(origin, callback) {
