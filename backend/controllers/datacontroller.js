@@ -1,64 +1,34 @@
 // Obtén el pool de conexiones a la base de datos
-const conectarBaseDeDatos = require('../db/db')
-const pool = conectarBaseDeDatos();
 const fs = require('fs')
 const path = require('path')
+const bcrypt = require('bcryptjs');
 
 const root = (req, res) => {
     res.send('hola mundo')
 }
 
-const obtenerUsuarios = (req, res) => {
-    pool.query('SELECT * FROM usuarios', (error, results) => {
-        if (!error) {
-            res.send({ 'users': results })
-        } else {
-            console.error('Error al obtener usuarios:', error);
-            res.status(500).send('Error interno del servidor');
-        }
-    });
-};
-
-const user = (req, res) => {
-    pool.query('SELECT * FROM usuarios', (error, results) => {
-        if (error) {
-            console.error('Error al obtener usuarios:', error);
-            // Manejo de errores
-            return res.status(500).json({ mensaje: 'Error al obtener usuarios' });
-        } else {
-            // Devolver los resultados en formato JSON
-            res.status(200).json({ usuarios: results });
-        }
-    });
-}
-
-const validar_usuario = (req, res) => {
+const validar_usuario = async (req, res) => {
     const correo = req.body.correo;
     const contrasena = req.body.contrasena;
-    console.log(`correo y contrasena ${correo, contrasena}`)
+
     if (!correo || !contrasena) {
         return res.status(400).json({ mensaje: 'Correo y contraseña son obligatorios' });
     }
 
-    pool.query('SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?', [correo, contrasena], (error, results) => {
-        if (error) {
-            console.error('Error al validar usuario:', error);
+    // Obtener la contraseña hasheada almacenada en la base de datos para el usuario dado el correo electrónico
+    // Esto es solo un ejemplo, debes reemplazarlo con la lógica real para recuperar la contraseña desde tu base de datos
+    const hashedPasswordFromDatabase = "$2y$10$.qkqOvbZEfylZ9YL6xEBBODAdls0WPNGDekN/w0E9xxnudL3GCsqe"; // Obtén esta contraseña hasheada de tu base de datos
 
-            // Detectar errores específicos y proporcionar mensajes adecuados
-            if (error.code === 'ER_DBACCESS_DENIED_ERROR') {
-                return res.status(500).json({ mensaje: 'Acceso denegado a la base de datos' });
-            } else {
-                return res.status(500).json({ mensaje: 'Error interno del servidor' });
-            }
-        } else {
-            if (results.length > 0) {
-                return res.status(200).json({ mensaje: 'Usuario válido' });
-            } else {
-                return res.status(401).json({ mensaje: 'Credenciales incorrectas' });
-            }
-        }
-    });
+    // Comparar la contraseña hasheada recuperada con la contraseña proporcionada por el usuario
+    const match = await bcrypt.compare(contrasena, hashedPasswordFromDatabase);
+
+    if (match && (correo === 'randycc24@hotmail.com' || correo === 's@gmail.com')) {
+        return res.status(200).json({ mensaje: 'Usuario válido' });
+    } else {
+        return res.status(401).json({ mensaje: 'Credenciales incorrectas' });
+    }
 };
+
 
 const imagenes = (req, res) => {
     const directorioImagenes = path.join(__dirname, '../', 'imagenes');
@@ -126,10 +96,8 @@ const eliminarImagen = (req, res) => {
 
 module.exports = {
     root,
-    obtenerUsuarios,
     validar_usuario,
     imagenes,
     cargarImagenes,
     eliminarImagen,
-    user,
 };

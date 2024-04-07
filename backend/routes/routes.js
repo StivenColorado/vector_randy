@@ -30,8 +30,6 @@ router.post('/eliminar_imagen', controller.eliminarImagen);
 
 
 router.get('/', controller.root);
-router.get('/users', controller.user);
-router.get('/usuarios', controller.obtenerUsuarios);
 router.get('/imagenes', controller.imagenes);
 
 

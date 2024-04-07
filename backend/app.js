@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const db = require('./config/db.json');
 const path = require('path');
-const port = 3300;
+const port = db.port;
 const host = db.host;
 const app = express();
 
@@ -36,5 +36,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor escuchando en ${host}:${port}`);
+  console.log(`Servidor escuchando en ${host}:${port}/api`);
 });
