@@ -19,6 +19,18 @@ const obtenerUsuarios = (req, res) => {
     });
 };
 
+const user = (req, res) => {
+    pool.query('SELECT * FROM usuarios', (error, results) => {
+        if (error) {
+            console.error('Error al obtener usuarios:', error);
+            // Manejo de errores
+            return res.status(500).json({ mensaje: 'Error al obtener usuarios' });
+        } else {
+            return res.status(200).json(results);
+        }
+    });
+}
+
 const validar_usuario = (req, res) => {
     const correo = req.body.correo;
     const contrasena = req.body.contrasena;
