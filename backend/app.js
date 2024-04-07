@@ -1,21 +1,21 @@
-// app.js
-const routes = require('./routes/routes')
-const db = require('./config/db.json')
-const cors = require('cors');
 const express = require('express');
-const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const routes = require('./routes/routes');
+const db = require('./config/db.json');
+const path = require('path');
 const port = db.port;
+const host = db.host;
+const app = express();
 
-// Obtén el pool de conexiones a la base de datos
 app.use(cors());
+app.use(cors({ credentials: true, origin: '*' }));
+// Resto de los middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api/imagenes', express.static(path.join(__dirname, 'imagenes')));
 app.use('/api', routes);
-// Aquí puedes utilizar el pool para realizar operaciones con la base de datos
-app.use('/', (req,res) =>{
-  res.send(`Hola mundo`);
-});
 
-
-// Escucha en el puerto especificado
 app.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
+  console.log(`Servidor escuchando en ${host}:${port}`);
 });

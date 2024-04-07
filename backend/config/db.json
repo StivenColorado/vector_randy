@@ -1,7 +1,8 @@
 {
-  "host": "localhost",
-  "user": "root",
-  "password": "admin",
-  "database": "randy",
-  "port": 3001
+  "host": "aws-0-us-west-1.pooler.supabase.com",
+  "user": "postgres.osdgdmjaplyxjozvatms",
+  "password": "FuGzlTs0lkoEH1mS",
+  "database": "postgres",
+  "port": 5432
 }
+

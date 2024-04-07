@@ -1,0 +1,6 @@
+{
+  "home": "/*",
+  "login": "/login",
+  "gallery": "/gallery",
+  "gallery_admin": "/gallery_admin"
+}

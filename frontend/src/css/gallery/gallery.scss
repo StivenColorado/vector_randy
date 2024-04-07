@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.my-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0;
+  background-color: red;
+  width: 2vw;
+  height: 4vh;
+  border: none;
+}
+
+.delete-button>svg {
+  color: white;
+}
+
+/* Estilo básico para el contenedor del formulario */
+#form-upload-files {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo básico para el contenedor del input de tipo file */
+.file-input-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 10px;
+  /* Añade margen entre el input y el botón */
+}
+
+/* Estilo básico para el botón que simulará el diseño del botón de carga */
+.file-input-button {
+  color: white;
+  background-color: #3498db;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Estilizar el input de tipo file */
+.file-input {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Estilizar el nombre del archivo seleccionado */
+.file-name {
+  margin-top: 5px;
+  /* Añade espacio entre el input y el nombre del archivo */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+/* Estilo para el botón de carga de imágenes */
+#load-files-button {
+  color: white;
+  height: 7vh;
+  border: none;
+  border-radius: .5rem;
+  background-color: rgb(85, 187, 141);
+  padding: 0 1em;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Estilizar el formulario */
+#form-upload-files {
+  margin: 20px;
+  /* Ajusta el margen del formulario según sea necesario */
+}
+
+@media (max-width:1200px) {
+  .delete-button {
+    background-color: red;
+    width: 5vw;
+    height: 4vh;
+  }
+}
+@media (max-width:500px) {
+  .delete-button {
+    background-color: red;
+    width: 8vw;
+    height: 5vh;
+  }
+}
+
+.my-masonry-grid_item {
+  margin-bottom: 16px;
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    width: min(90%, 100rem);
+    margin: 0 auto;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: clamp(1rem, 0.8750rem + 0.6250vw, 1.5rem);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 25% 30% 15% 25%;
+    gap: 15px;
+    place-content: center;
+    grid-template-rows: 50% 50%;
+    height: 80vh;
+    min-height: 460px;
+    padding: max(2vh, 1.5rem);
+
+
+
+    @media screen and (max-width: 690px) {
+      height: 65vh;
+    }
+
+    @media screen and (max-width: 470px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 35%);
+    }
+
+    .card {
+      // border-radius: 25px;
+      box-shadow: -2px 4px 15px rgb(0 0 0 / 26%);
+
+      @media screen and (max-width: 470px) {
+        grid-column: span 1;
+      }
+
+      &:nth-child(2) {
+        grid-column: 2/3;
+        grid-row: span 2;
+
+        @media screen and (max-width: 690px) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+
+      &:nth-child(3) {
+        grid-column: span 2;
+
+        @media screen and (max-width: 690px) {
+          grid-column: 2/4;
+          grid-row: 1/2;
+        }
+      }
+
+      @media screen and (max-width: 690px) {
+        &:nth-child(6) {
+          grid-column: 2/4;
+          grid-row: 2/3;
+        }
+      }
+
+      @media screen and (max-width: 470px) {
+        &:nth-child(5) {
+          grid-column: span 2;
+        }
+      }
+
+      p {
+        font-size: clamp(0.9rem, 0.8750rem + 0.1250vw, 1rem);
+        line-height: 1.4;
+      }
+
+      img {
+        border-radius: 25px;
+      }
+
+      .card__img {
+        position: relative;
+        height: 100%;
+        // border-radius: 3em;
+        overflow: hidden;
+
+        .card__overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          content: "";
+          color: #fff;
+          padding: clamp(0.938rem, 5vw, 1.563rem);
+          background: rgb(2, 2, 46);
+          background: linear-gradient(0deg, rgb(0 0 0 / 57%) 0%, rgb(255 255 255 / 0%) 100%);
+          width: 100%;
+          height: 100%;
+          // border-radius: 25px;
+          display: flex;
+          justify-content: flex-end;
+          flex-direction: column;
+        }
+
+        span {
+          position: absolute;
+          top: 25px;
+          left: min(2vmax, 1.563rem);
+          color: #ff7b29;
+          background: #fff;
+          // border-radius: 50px;
+          padding: 2px 8px 2px 6px;
+          display: flex;
+          box-shadow: 0px 1px 20px #0000002b;
+
+          @media screen and (max-width: 690px) {
+            top: 20px;
+          }
+
+          @media screen and (max-width: 470px) {
+            top: 15px;
+          }
+
+          svg {
+            fill: #ff7b29;
+            width: 20px;
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  border: none;
+  border-color: transparent;
+}
+
+.my-masonry-grid_image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  /* Ajusta la imagen para que cubra completamente el contenedor */
+  border-radius: 1em;
+}
+
+/* Estilos adicionales para lograr un aspecto más aleatorio */
+.my-masonry-grid_item:nth-child(2n) {
+  border: none;
+  grid-row: span 1;
+  /* Hace que los elementos en posiciones pares ocupen 2 filas */
+}
+
+.my-masonry-grid_item:nth-child(3n) {
+  border: none;
+
+  grid-column: span 3;
+  /* Hace que los elementos en posiciones múltiplos de 3 ocupen 2 columnas */
+  grid-row: span 2;
+  /* Hace que los elementos en posiciones múltiplos de 3 ocupen 2 columnas */
+}
