@@ -22,7 +22,7 @@ const obtenerUsuarios = (req, res) => {
 const validar_usuario = (req, res) => {
     const correo = req.body.correo;
     const contrasena = req.body.contrasena;
-
+    console.log(`correo y contrasena ${correo, contrasena}`)
     if (!correo || !contrasena) {
         return res.status(400).json({ mensaje: 'Correo y contraseña son obligatorios' });
     }

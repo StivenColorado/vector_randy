@@ -8,18 +8,18 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
+    const [Email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const formData = new URLSearchParams();
-        formData.append('correo', email);
+        formData.append('correo', Email);
         formData.append('contrasena', password);
+        console.log(`correo y contrasena en front: ${Email, password}`)
 
         try {
-            const response = await fetch('http://localhost:3300/api/validar_usuario', {
+            const response = await fetch('https://vector-randy.onrender.com/api/validar_usuario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -33,7 +33,7 @@ export const Login = () => {
 
                 if (response.status === 200 && data.mensaje === 'Usuario válido') {
                     // Establecer cookie después de una autenticación exitosa
-                    document.cookie = `usuario=${email}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/`;
+                    document.cookie = `usuario=${Email}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/`;
 
                     toast.success(data.mensaje, {
                         position: "top-right",
