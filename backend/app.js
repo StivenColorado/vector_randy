@@ -9,7 +9,7 @@ const host = db.host;
 const app = express();
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://vector-randy.vercel.app',
   credentials: true
 }));
 
