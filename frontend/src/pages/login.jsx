@@ -113,15 +113,15 @@ export const Login = () => {
                     </div>
 
                     <div className="col-md-6" style={{ minHeight: '50vh' }}>
-                        <div className="container" style={{ minHeight: '100%', minWidth: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <div className="container" style={{ minHeight: '100%', minWidth: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <form onSubmit={handleSubmit} style={{ minHeight: '100%', minWidth: '100%', display: 'flex', justifyContent: 'center', alignContent: 'center', flexDirection: 'column' }}>
                                 <div className="mb-3">
-                                    <label htmlFor="correo" className="form-label" style={{ width: '80%' }}>Correo Electrónico</label>
-                                    <input type="email" className="form-control" id="correo" style={{ width: '80%' }} onChange={(e) => setEmail(e.target.value)} />
+                                    <label htmlFor="correo" className="form-label" style={{ width: '100%' }}>Correo Electrónico</label>
+                                    <input type="email" className="form-control" id="correo" style={{ width: '100%' }} onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="contrasena" className="form-label" style={{ width: '80%' }}>Contraseña</label>
-                                    <input type="password" className="form-control" id="contrasena" style={{ width: '80%' }} onChange={(e) => setPassword(e.target.value)} />
+                                    <label htmlFor="contrasena" className="form-label" style={{ width: '100%' }}>Contraseña</label>
+                                    <input type="password" className="form-control" id="contrasena" style={{ width: '100%' }} onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <button type="submit" className="btn btn-primary pt-3">Iniciar Sesión</button>
                             </form>

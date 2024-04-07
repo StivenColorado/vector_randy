@@ -39,7 +39,8 @@ export const Header = () => {
                                                     <li><Link to="/">Home</Link></li>
                                                     <li><ScrollLink to="about_reference" smooth={true}>About</ScrollLink></li>
                                                     <li><ScrollLink to="services_reference" smooth={true}>Services</ScrollLink></li>
-                                                    <li><ScrollLink to="contact_reference" smooth={true}>Contact</ScrollLink></li>
+                                                    {/* <li><ScrollLink to="contact_reference" smooth={true}>Contact</ScrollLink></li> */}
+                                                    <li><Link to="/login">Login</Link></li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -94,17 +95,20 @@ export const Header = () => {
                                                     </ScrollLink>
                                                 </li>
                                                 <li>
-                                                    <ScrollLink to="portfolio_reference" smooth={true} role="menuitem" tabIndex="-1">
-                                                        <Link to="/gallery">
-                                                            Portfolio
-                                                        </Link>
-                                                    </ScrollLink>
+                                                    <Link to="/gallery" smooth={true} role="menuitem" tabIndex="-1">
+                                                        Portfolio
+                                                    </Link>
                                                 </li>
                                                 <li className="slicknav_collapsed slicknav_parent"></li>
-                                                <li>
+                                                {/* <li>
                                                     <ScrollLink to="contact_reference" smooth={true} role="menuitem" tabIndex="-1">
                                                         Contact
                                                     </ScrollLink>
+                                                </li> */}
+                                                <li>
+                                                    <Link to="/login" smooth={true} role="menuitem" tabIndex="-1">
+                                                        Login
+                                                    </Link>
                                                 </li>
                                             </ul>
 
