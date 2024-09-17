@@ -5,21 +5,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Gallery_admin = () => {
-  const [images, setImages] = React.useState([]); // Estado para almacenar las imágenes
-
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState([]); // Estado para almacenar las imágenes
+  const [selectedImages, setSelectedImages] = useState([]); // Estado para manejar las imágenes seleccionadas
   const [displayButton, setDisplayButton] = useState(false);
-
   const navigate = useNavigate();
 
-  const display_Button = () => {
-    if (selectedImage) {
-      setDisplayButton(true);
-    } else {
-      setDisplayButton(false);
-    }
-  };
-
+  // Mostrar el botón solo cuando hay imágenes seleccionadas
+  useEffect(() => {
+    setDisplayButton(selectedImages.length > 0);
+  }, [selectedImages]);
 
   useEffect(() => {
     const getCookie = (name) => {
@@ -44,9 +38,7 @@ export const Gallery_admin = () => {
 
   const traerImagenes = async () => {
     try {
-      //https://vector-randy.onrender.com/api/imagenes/
       const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
-
       const response = await fetch(apiUrl);
 
       if (!response.ok) {
@@ -54,9 +46,7 @@ export const Gallery_admin = () => {
       }
 
       const data = await response.json();
-
       const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vector-randy.onrender.com:${imagen}`);
-
       setImages(imagenesConRutasCompletas);
     } catch (error) {
       console.error('Error en la solicitud de imágenes:', error);
@@ -64,14 +54,8 @@ export const Gallery_admin = () => {
   };
 
   useEffect(() => {
-    display_Button();
-  }, [selectedImage]);
-
-  useEffect(() => {
     traerImagenes();
-    display_Button()
   }, []);
-
 
   const handleCargarImagenes = async (e) => {
     e.preventDefault();
@@ -82,14 +66,9 @@ export const Gallery_admin = () => {
       const apiUrl = `https://vector-randy.onrender.com/api/cargar_imagenes`;
 
       const formData = new FormData();
-      const input = document.getElementById('load-image');
-      formData.append('imagen', input.files[0]); // Asegúrate de que 'imagen' sea el nombre correcto
-
-      // Imprime el FormData utilizando entries y JSON.stringify
-      console.log("Lo que se está enviando en el formulario:");
-      for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
+      selectedImages.forEach(file => {
+        formData.append('imagenes', file);
+      });
 
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -101,13 +80,17 @@ export const Gallery_admin = () => {
       }
 
       traerImagenes();
-      window.location.reload()
-
+      // Resetear la selección de archivos después de cargar
+      setSelectedImages([]);
+      document.getElementById('load-image').value = '';
     } catch (error) {
       console.error('Error al cargar las imágenes:', error);
-      window.location.reload()
-
     }
+  };
+
+  const handleImageChange = (e) => {
+    const files = e.target.files;
+    setSelectedImages(Array.from(files)); // Convertir FileList a Array
   };
 
   const handleEliminarImagen = async (nombreArchivo) => {
@@ -132,7 +115,6 @@ export const Gallery_admin = () => {
     }
   };
 
-
   const getFileNameFromUrl = (url) => {
     const parts = url.split('/');
     return parts[parts.length - 1];
@@ -143,23 +125,23 @@ export const Gallery_admin = () => {
       <Header />
       <form id="form-upload-files" onSubmit={handleCargarImagenes} encType="multipart/form-data">
         <div className="file-input-container">
-          <label for="load-image" className="file-input-button">Seleccionar Archivo</label>
+          <label htmlFor="load-image" className="file-input-button">Seleccionar Archivos</label>
           <input
             type="file"
-            name="imagen"
+            name="imagenes" // Debe coincidir con el nombre usado en FormData
             id="load-image"
             accept=".jpg, .jpeg, .png, .gif"
             className="file-input"
-            onChange={(e) => setSelectedImage(e.target.files[0])}
+            multiple // Permite seleccionar múltiples archivos
+            onChange={handleImageChange} // Maneja la selección de archivos
           />
-
-
         </div>
-        <span class="file-name" id="file-name"></span>
-        <button id="load-files-button" type="submit" style={{ display: displayButton ? 'block' : 'none' }}>
-          Cargar Imágen
-        </button>
-
+        <span className="file-name" id="file-name"></span>
+        {displayButton && (
+          <button id="load-files-button" type="submit">
+            Cargar Imágenes
+          </button>
+        )}
       </form>
 
       <div className="container">

@@ -51,24 +51,20 @@ const imagenes = (req, res) => {
 
 const cargarImagenes = (req, res) => {
     try {
-        const imagen = req.file;
-        console.log(`Imagen recibida: ${imagen.originalname}`);
+        if (!req.files) {
+            return res.status(400).json({ mensaje: 'No se han enviado archivos' });
+        }
 
-        const directorioImagenes = path.join(__dirname, '../', 'imagenes');
-        const rutaImagen = path.join(directorioImagenes, imagen.filename);
-        console.log(`TIPO DE DATO : ${typeof rutaImagen} de  ${rutaImagen}`)
-
-        fs.writeFile(rutaImagen, imagen.buffer, (err) => {
-            if (err) {
-                console.error('Error al cargar la imagen:', err);
-                res.status(500).json({ mensaje: 'Error interno del servidor al cargar la imagen' });
-            } else {
-                res.status(200).json({ mensaje: 'Imagen cargada correctamente' });
-            }
+        // `req.files` es un array de archivos en el caso de múltiples archivos
+        req.files.forEach(file => {
+            console.log(`Imagen recibida: ${file.originalname}`);
         });
+
+        res.status(200).json({ mensaje: 'Imágenes cargadas correctamente' });
+
     } catch (error) {
-        console.error('Error al cargar la imagen:', error);
-        res.status(500).json({ mensaje: 'Error interno del servidor al cargar la imagen' });
+        console.error('Error al cargar las imágenes:', error);
+        res.status(500).json({ mensaje: 'Error interno del servidor al cargar las imágenes' });
     }
 };
 

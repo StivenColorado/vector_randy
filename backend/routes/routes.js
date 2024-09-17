@@ -6,26 +6,29 @@ const path = require('path');
 const fs = require('fs');
 
 const directorioImagenes = path.join(__dirname, '../', 'imagenes');
-console.log(`FUCKING DIRECTORIO : `+directorioImagenes)
+console.log(`DIRECTORIO : `+directorioImagenes)
 if (!fs.existsSync(directorioImagenes)) {
     fs.mkdirSync(directorioImagenes);
 }
 
+// Configura el almacenamiento con multer
 const storage = multer.diskStorage({
-    destination: directorioImagenes,
-    filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const extension = path.extname(file.originalname);
-        cb(null, file.fieldname + '-' + uniqueSuffix + extension);
+    destination: (req, file, cb) => {
+        const directorioImagenes = path.join(__dirname, '../', 'imagenes');
+        fs.mkdirSync(directorioImagenes, { recursive: true }); // Asegura que el directorio existe
+        cb(null, directorioImagenes);
     },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname); // Usa el nombre original del archivo
+    }
 });
 
 const upload = multer({ storage: storage });
 
-
 // Definir rutas y asignarlas a funciones del controlador
 router.post('/validar_usuario', controller.validar_usuario);
-router.post('/cargar_imagenes', upload.single('imagen'), controller.cargarImagenes);
+// router.post('/cargar_imagenes', upload.single('imagen'), controller.cargarImagenes);
+router.post('/cargar_imagenes', upload.array('imagenes'), controller.cargarImagenes);
 router.post('/eliminar_imagen', controller.eliminarImagen);
 
 
