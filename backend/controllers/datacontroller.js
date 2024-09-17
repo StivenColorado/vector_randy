@@ -17,7 +17,7 @@ const validar_usuario = async (req, res) => {
 
     // Obtener la contraseña hasheada almacenada en la base de datos para el usuario dado el correo electrónico
     // Esto es solo un ejemplo, debes reemplazarlo con la lógica real para recuperar la contraseña desde tu base de datos
-    const hashedPasswordFromDatabase = "$2y$10$.qkqOvbZEfylZ9YL6xEBBODAdls0WPNGDekN/w0E9xxnudL3GCsqe"; // Obtén esta contraseña hasheada de tu base de datos
+    const hashedPasswordFromDatabase = "$2a$10$SNSV2EHrDyj73sAnnx6UVunEdcPB4.Hx9X7BiEnvIMF0vEMfdBUFC"; // Obtén esta contraseña hasheada de tu base de datos
 
     // Comparar la contraseña hasheada recuperada con la contraseña proporcionada por el usuario
     const match = await bcrypt.compare(contrasena, hashedPasswordFromDatabase);
