@@ -3,6 +3,15 @@ const fs = require('fs')
 const path = require('path')
 const bcrypt = require('bcryptjs');
 
+
+const imageDir = path.join(__dirname, 'imagenes');
+
+// Verifica si la carpeta existe, y si no, la crea
+if (!fs.existsSync(imageDir)) {
+  fs.mkdirSync(imageDir);
+  console.log('Carpeta "imagenes" creada');
+}
+
 const root = (req, res) => {
     res.send('hola mundo')
 }

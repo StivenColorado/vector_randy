@@ -8,8 +8,19 @@ const port = db.port;
 const host = db.host;
 const app = express();
 
+// Definir los orígenes permitidos
+const allowedOrigins = ['https://vector-randy.vercel.app', 'http://localhost:5173'];
+
+// Configurar CORS para permitir múltiples orígenes
 app.use(cors({
-  origin: 'https://vector-randy.vercel.app',
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (por ejemplo, Postman) o si el origen está en la lista permitida
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 

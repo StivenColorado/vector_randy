@@ -38,15 +38,15 @@ export const Gallery_admin = () => {
 
   const traerImagenes = async () => {
     try {
-      const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
+      // const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
+      const apiUrl = `https://vectorrandy-production.up.railway.app/api/imagenes/`;
       const response = await fetch(apiUrl);
-
       if (!response.ok) {
         throw new Error(`Error al obtener las imágenes: ${response.statusText}`);
       }
 
       const data = await response.json();
-      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vector-randy.onrender.com:${imagen}`);
+      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vectorrandy-production.up.railway.app:${imagen}`);
       setImages(imagenesConRutasCompletas);
     } catch (error) {
       console.error('Error en la solicitud de imágenes:', error);
@@ -63,7 +63,7 @@ export const Gallery_admin = () => {
     try {
       const serverHost = import.meta.env.VITE_SERVER_HOST || 'localhost';
       const serverPort = import.meta.env.VITE_SERVER_PORT || '3300';
-      const apiUrl = `https://vector-randy.onrender.com/api/cargar_imagenes`;
+      const apiUrl = `https://vectorrandy-production.up.railway.app/api/cargar_imagenes`;
 
       const formData = new FormData();
       selectedImages.forEach(file => {
@@ -95,7 +95,7 @@ export const Gallery_admin = () => {
 
   const handleEliminarImagen = async (nombreArchivo) => {
     try {
-      const apiUrl = `https://vector-randy.onrender.com/api/eliminar_imagen`;
+      const apiUrl = `https://vectorrandy-production.up.railway.app/api/eliminar_imagen`;
 
       const response = await fetch(apiUrl, {
         method: 'POST',

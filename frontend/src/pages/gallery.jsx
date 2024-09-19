@@ -12,7 +12,7 @@ export const Gallery = () => {
   const traerImagenes = async () => {
     try {
       // Construir la URL de la API de imágenes
-      const apiUrl = `https://vector-randy.onrender.com/api/imagenes/`;
+      const apiUrl = `https://vectorrandy-production.up.railway.app/api/imagenes/`;
 
       // Realizar la solicitud GET
       
@@ -26,7 +26,7 @@ export const Gallery = () => {
       const data = await response.json();
 
       // Construir las rutas completas de las imágenes
-      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vector-randy.onrender.com:${imagen}`);
+      const imagenesConRutasCompletas = data.imagenes.map(imagen => `https://vectorrandy-production.up.railway.app:${imagen}`);
 
       // Establecer las imágenes en el estado
       setImages(imagenesConRutasCompletas);
