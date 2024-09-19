@@ -26,5 +26,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(Servidor escuchando en ${host}:${port}/api);
+  console.log(`Servidor escuchando en ${host}:${port}/api`);
 });
