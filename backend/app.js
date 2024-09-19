@@ -1,4 +1,3 @@
-como lo configuro para que coja el servidor:
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
