@@ -21,7 +21,7 @@ export const Login = () => {
         console.log(`correo y contrasena en front: ${Email, password}`)
     
         try {
-            const response = await fetch('http://localhost:3300/api/validar_usuario', {
+            const response = await fetch('https://vectorrandy-production.up.railway.app/api/validar_usuario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
