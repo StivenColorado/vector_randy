@@ -1,8 +1,8 @@
 {
-  "host": "http://localhost",
+  "host": "vectorrandy-production.up.railway.app",
   "user": "root",
   "password": "admin",
   "database": "randy",
-  "port": 3300
+  "port": 8080
 }
 
