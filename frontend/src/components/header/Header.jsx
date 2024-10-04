@@ -1,57 +1,49 @@
-import { useState } from 'react'
-import React from 'react'
-import logo from '../../assets/img/logo/logo.png'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import React from 'react';
+import logo from '../../assets/img/logo/logo.png';
+import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
-
 export const Header = () => {
-    const [count, setCount] = useState(0)
-
+    const [count, setCount] = useState(0);
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {
-        console.log('menu')
+        console.log('menú');
         setMenuVisible(!menuVisible);
     };
+
     return (
         <>
             <header>
                 <div className="header-area">
-                    <div className="main-header  header-sticky">
+                    <div className="main-header header-sticky" style={{ backgroundColor: '#fe3d3e' }}>
                         <div className="container-fluid">
                             <div className="row align-items-center">
-                                {/* <div className="col-xl-2 col-lg-2 col-md-1">
-                                    <div className="logo">
-                                        <a href="index.html"><img src={logo} alt="" /></a>
-                                    </div>
-                                </div> */}
                                 <div className="col-xl-2 col-lg-2 col-md-1">
                                     <h3 style={{ fontWeight: 'bold' }}>
-                                        ✏️<span style={{ color: '#fe3d3e' }}>Future</span>  idea
+                                        ✏️<span style={{ color: '#fff' }}>Futuro</span> idea
                                     </h3>
                                 </div>
                                 <div className="col-xl-10 col-lg-10 col-md-10">
                                     <div className="menu-main d-flex align-items-center justify-content-end">
                                         <div className="main-menu f-right d-none d-lg-block">
                                             <nav>
-                                                <ul id="navigation">
-                                                    <li><Link to="/">Home</Link></li>
-                                                    <li><ScrollLink to="about_reference" smooth={true}>About</ScrollLink></li>
-                                                    <li><ScrollLink to="services_reference" smooth={true}>Services</ScrollLink></li>
-                                                    {/* <li><ScrollLink to="contact_reference" smooth={true}>Contact</ScrollLink></li> */}
-                                                    <li><Link to="/login">Login</Link></li>
+                                                <ul id="navigation" style={{ color: 'white' }}>
+                                                    <li><Link to="/" style={{ color: 'white' }}>Inicio</Link></li>
+                                                    <li><ScrollLink to="services_reference" smooth={true} style={{ color: 'white' }}>Servicios</ScrollLink></li>
+                                                    <li><Link to="/login" style={{ color: 'white' }}>Iniciar Sesión</Link></li>
                                                 </ul>
                                             </nav>
                                         </div>
                                         <div className="header-right-btn f-right d-none d-xl-block ml-20">
-                                            <Link to="/gallery" className="btn header-btn">Porftfolio</Link>
+                                            <Link to="/gallery" className="btn header-btn">Galeria</Link>
                                         </div>
                                     </div>
                                 </div>
-                                {/*  Menú celular */}
+                                {/* Menú móvil */}
                                 <div className="col-12">
-                                    <div className={`mobile_menu d-block d-lg-none ${menuVisible ? 'menu-visible' : ''}`}>
+                                    <div className={`mobile_menu d-block d-lg-none ${menuVisible ? 'menu-visible' : ''}`} style={{ backgroundColor: '#fe3d3e' }}>
                                         <div className="slicknav_menu">
                                             <a
                                                 aria-haspopup="true"
@@ -69,58 +61,39 @@ export const Header = () => {
                                             <ul
                                                 className={`slicknav_nav ${menuVisible ? '' : 'd-none'}`}
                                                 aria-hidden={!menuVisible}
+                                                style={{background:'rgb(254 61 62)'}}
                                                 role="menu"
                                             >
                                                 <li>
-                                                    <a
-                                                        href="/"
-                                                        role="menuitem"
-                                                        tabIndex="-1"
-                                                        onClick={() => animateScroll.scrollToTop()}
-                                                    >
-                                                        Home
-                                                    </a>
+                                                    <Link to="/" role="menuitem" tabIndex="-1" onClick={() => animateScroll.scrollToTop()} style={{ color: 'white' }}>
+                                                        Inicio
+                                                    </Link>
                                                 </li>
-
-
-
                                                 <li>
-                                                    <ScrollLink to="about_reference" smooth={true} role="menuitem" tabIndex="-1">
-                                                        About
+                                                    <ScrollLink to="services_reference" smooth={true} role="menuitem" tabIndex="-1" style={{ color: 'white' }}>
+                                                        Servicios
                                                     </ScrollLink>
                                                 </li>
                                                 <li>
-                                                    <ScrollLink to="services_reference" smooth={true} role="menuitem" tabIndex="-1">
-                                                        Services
-                                                    </ScrollLink>
-                                                </li>
-                                                <li>
-                                                    <Link to="/gallery" smooth={true} role="menuitem" tabIndex="-1">
-                                                        Portfolio
+                                                    <Link to="/gallery" smooth={true} role="menuitem" tabIndex="-1" style={{ color: 'white' }}>
+                                                        Galeria 
                                                     </Link>
                                                 </li>
                                                 <li className="slicknav_collapsed slicknav_parent"></li>
-                                                {/* <li>
-                                                    <ScrollLink to="contact_reference" smooth={true} role="menuitem" tabIndex="-1">
-                                                        Contact
-                                                    </ScrollLink>
-                                                </li> */}
                                                 <li>
-                                                    <Link to="/login" smooth={true} role="menuitem" tabIndex="-1">
-                                                        Login
+                                                    <Link to="/login" smooth={true} role="menuitem" tabIndex="-1" style={{ color: 'white' }}>
+                                                        Iniciar Sesión
                                                     </Link>
                                                 </li>
                                             </ul>
-
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
         </>
-    )
+    );
 }

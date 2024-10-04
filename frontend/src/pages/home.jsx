@@ -31,20 +31,19 @@ export const Home = () => {
     };
     return (
         <>
-
             <Header />
             <main>
-                <div className="slider-area ">
+                <div className="slider-area">
                     <div className="slider-active">
                         <div className="single-slider slider-height d-flex align-items-center">
                             <div className="container">
                                 <div className="row">
                                     <div className="col-xl-6 col-lg-6 col-md-8">
                                         <div className="hero__caption">
-                                            <span data-animation="fadeInUp" data-delay=".4s">Transforming Ideas into Vectors.</span>
-                                            <h1 data-animation="fadeInUp" data-delay=".6s">I’m Artist Randy</h1>
+                                            <span data-animation="fadeInUp" data-delay=".4s">Transformando ideas en vectores. 💡</span>
+                                            <h1 data-animation="fadeInUp" data-delay=".6s">Soy Randy</h1>
                                             <p data-animation="fadeInUp" data-delay=".8s" >
-                                                I have cultivated my art through creative exploration and authenticity. My unique approach and distinctive style in professional vector illustrations have been shaped by my dedication and love of visual expression.
+                                                He cultivado mi arte a través de la exploración creativa y la autenticidad. Mi enfoque único y estilo distintivo en ilustraciones vectoriales profesionales han sido moldeados por mi dedicación y amor por la expresión visual.
                                             </p>
                                             {/* <div className="hero__btn">
                             <a href="industries.html" className="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Learn More</a>
@@ -62,16 +61,16 @@ export const Home = () => {
                         <div className="row ">
                             <div className="col-lg-5">
                                 <div className="about-caption mb-50">
-                                    <h3>Vectors that Tell Stories: Welcome to my Creative Corner</h3>
+                                    <h3>Vectores que Cuentan Historias: Bienvenido a mi Rincón Creativo</h3>
                                     <p className="pera1">
-                                        Step into a world where vectors come to life, each telling a unique story. Welcome to my creative corner, where art unfolds in every stroke and color.
+                                        Entra en un mundo donde los vectores cobran vida, cada uno contando una historia única. Bienvenido a mi rincón creativo, donde el arte se despliega en cada trazo y color.
                                     </p>
                                 </div>
                             </div>
                             <div className="col-lg-5 offset-lg-1">
                                 <div className="about-caption2">
-                                    <h3>Any Idea Can Build You & I .</h3>
-                                    <p>Late talk with me</p>
+                                    <h3>Cualquier Idea Puede Construirte a Ti y a Mí.</h3>
+                                    <p>Hablemos más tarde</p>
                                     <div className="send-cv">
                                         <a onClick={handleEmailButtonClick}>Randycc24@hotmail.com</a>
                                         <i className="ti-arrow-right"></i>
@@ -83,25 +82,26 @@ export const Home = () => {
                 </section>
 
 
-                <section className="services-area  services-padding" id='services_reference'>
+
+                <section className="services-area services-padding" id='services_reference'>
                     <div className="container">
                         <div className="project-heading mb-35">
                             <div className="row align-items-end">
                                 <div className="col-lg-6">
                                     <div className="section-tittle">
-                                        <h2>What I can do for you!</h2>
+                                        <h2>¡Lo que puedo hacer por ti!</h2>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="properties__button">
-                                        {/* Nav Button */}
+                                        {/* Botón de navegación */}
                                         <nav>
                                             <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false"> All</a>
-                                                <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Music</a>
-                                                <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Gestures</a>
-                                                <a className="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">People </a>
-                                                <a className="nav-item nav-link" id="nav-technology" data-toggle="tab" href="#nav-techno" role="tab" aria-controls="nav-contact" aria-selected="false">Objects</a>
+                                                <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false"> Todos</a>
+                                                <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Música</a>
+                                                <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Gestos</a>
+                                                <a className="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Personas</a>
+                                                <a className="nav-item nav-link" id="nav-technology" data-toggle="tab" href="#nav-techno" role="tab" aria-controls="nav-contact" aria-selected="false">Objetos</a>
                                             </div>
                                         </nav>
                                     </div>
@@ -174,19 +174,19 @@ export const Home = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-4 col-md-4 col-sm-4">
-                                                    Single
+                                                    Solo
                                                     <div className="single-services mb-30">
                                                         <img src={services5} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-4 col-md-4 col-sm-4">
-                                                    Single
+                                                    Solo
                                                     <div className="single-services mb-30">
                                                         <img src={services1} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-4 col-md-4 col-sm-4">
-                                                    Single
+                                                    Solo
                                                     <div className="single-services mb-30">
                                                         <img src={services2} alt="" />
                                                     </div>
@@ -198,7 +198,7 @@ export const Home = () => {
                                         <div className="services-caption">
                                             <div className="row">
                                                 <div className="col-lg-8 col-md-8 col-sm-8">
-                                                    Single
+                                                    Solo
                                                     <div className="single-services mb-30">
                                                         <img src={services1} alt="" />
                                                     </div>
@@ -320,6 +320,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </section>
+
                 {/* <section className="wantToWork-area w-padding2" id='contact_reference'>
                     <div className="container">
                         <div className="row align-items-center justify-content-between">

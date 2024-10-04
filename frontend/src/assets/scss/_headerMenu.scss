@@ -130,6 +130,7 @@
 // Mobile Menu slick Nav
 .mobile_menu {
     position: absolute;
+    background-color: white;
     right: 0px;
     width: 100%;
     z-index: 99;
@@ -149,5 +150,6 @@
     }
     .slicknav_nav {
         margin-top: 0px;
+        background-color: red;
     }
 }

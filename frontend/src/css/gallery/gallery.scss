@@ -122,8 +122,7 @@
   img {
     width: 100%;
     display: block;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* Mantiene la proporción de la imagen */
   }
 
   h2 {
@@ -134,80 +133,46 @@
 
   section {
     display: grid;
-    grid-template-columns: 25% 30% 15% 25%;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas iguales */
     gap: 15px;
     place-content: center;
-    grid-template-rows: 50% 50%;
     height: 80vh;
     min-height: 460px;
     padding: max(2vh, 1.5rem);
 
-
-
     @media screen and (max-width: 690px) {
       height: 65vh;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas más pequeñas */
     }
 
     @media screen and (max-width: 470px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 35%);
+      grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
     }
 
     .card {
-      // border-radius: 25px;
+      width: 100%; /* 100% del ancho del contenedor */
+      height: 300px; /* Altura fija para todas las cartas */
+      border-radius: 25px;
       box-shadow: -2px 4px 15px rgb(0 0 0 / 26%);
-
-      @media screen and (max-width: 470px) {
-        grid-column: span 1;
-      }
-
-      &:nth-child(2) {
-        grid-column: 2/3;
-        grid-row: span 2;
-
-        @media screen and (max-width: 690px) {
-          grid-column: span 1;
-          grid-row: span 1;
-        }
-      }
-
-      &:nth-child(3) {
-        grid-column: span 2;
-
-        @media screen and (max-width: 690px) {
-          grid-column: 2/4;
-          grid-row: 1/2;
-        }
-      }
-
-      @media screen and (max-width: 690px) {
-        &:nth-child(6) {
-          grid-column: 2/4;
-          grid-row: 2/3;
-        }
-      }
-
-      @media screen and (max-width: 470px) {
-        &:nth-child(5) {
-          grid-column: span 2;
-        }
-      }
+      overflow: hidden; /* Asegura que los contenidos no se desborden */
 
       p {
         font-size: clamp(0.9rem, 0.8750rem + 0.1250vw, 1rem);
         line-height: 1.4;
       }
 
-      img {
-        border-radius: 25px;
-      }
-
       .card__img {
         position: relative;
-        height: 100%;
-        // border-radius: 3em;
+        height: 100%; /* Mantiene la altura de la imagen dentro de la carta */
         overflow: hidden;
 
+        img {
+          width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho de la carta */
+          height: 100%; /* Asegura que la imagen ocupe toda la altura de la carta */
+          object-fit: cover; /* Asegura que la imagen cubra el área de la carta */
+          aspect-ratio: 1 / 1; /* Mantiene la proporción de la imagen (cuadrada) */
+        }
+        
         .card__overlay {
           position: absolute;
           bottom: 0;
@@ -219,7 +184,6 @@
           background: linear-gradient(0deg, rgb(0 0 0 / 57%) 0%, rgb(255 255 255 / 0%) 100%);
           width: 100%;
           height: 100%;
-          // border-radius: 25px;
           display: flex;
           justify-content: flex-end;
           flex-direction: column;
@@ -231,7 +195,6 @@
           left: min(2vmax, 1.563rem);
           color: #ff7b29;
           background: #fff;
-          // border-radius: 50px;
           padding: 2px 8px 2px 6px;
           display: flex;
           box-shadow: 0px 1px 20px #0000002b;
@@ -253,32 +216,14 @@
       }
     }
   }
-
-  border: none;
-  border-color: transparent;
 }
 
+/* Ajuste final para el comportamiento de las cartas */
 .my-masonry-grid_image {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
-  /* Ajusta la imagen para que cubra completamente el contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor */
   border-radius: 1em;
 }
 
-/* Estilos adicionales para lograr un aspecto más aleatorio */
-.my-masonry-grid_item:nth-child(2n) {
-  border: none;
-  grid-row: span 1;
-  /* Hace que los elementos en posiciones pares ocupen 2 filas */
-}
-
-.my-masonry-grid_item:nth-child(3n) {
-  border: none;
-
-  grid-column: span 3;
-  /* Hace que los elementos en posiciones múltiplos de 3 ocupen 2 columnas */
-  grid-row: span 2;
-  /* Hace que los elementos en posiciones múltiplos de 3 ocupen 2 columnas */
-}
