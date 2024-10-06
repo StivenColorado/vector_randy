@@ -33,22 +33,22 @@ export const Home = () => {
         <>
             <Header />
             <main>
-                <div className="slider-area">
-                    <div className="slider-active">
-                        <div className="single-slider slider-height d-flex align-items-center">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-xl-6 col-lg-6 col-md-8">
-                                        <div className="hero__caption">
-                                            <span data-animation="fadeInUp" data-delay=".4s">Transformando ideas en vectores. 💡</span>
-                                            <h1 data-animation="fadeInUp" data-delay=".6s">Soy Randy</h1>
-                                            <p data-animation="fadeInUp" data-delay=".8s" >
+                <div class="slider-area">
+                    <div class="slider-active ">
+                        <div class="single-slider slider-height d-flex items-center">
+                            <div class="container mx-auto">
+                                <div class="row bg-red-400">
+                                    <div class="col-xl-6 col-lg-6 col-md-8 ml-auto text-right flex items-end">
+                                        <div class="hero__caption">
+                                            <span class="block text-lg text-gray-300" data-animation="fadeInUp" data-delay=".4s">
+                                                Transformando ideas en vectores. 💡
+                                            </span>
+                                            <h1 class="text-5xl font-bold text-white" data-animation="fadeInUp" data-delay=".6s">
+                                                Soy Randy
+                                            </h1>
+                                            <p class="text-xl mt-4 text-white" data-animation="fadeInUp" data-delay=".8s">
                                                 He cultivado mi arte a través de la exploración creativa y la autenticidad. Mi enfoque único y estilo distintivo en ilustraciones vectoriales profesionales han sido moldeados por mi dedicación y amor por la expresión visual.
                                             </p>
-                                            {/* <div className="hero__btn">
-                            <a href="industries.html" className="btn hero-btn" data-animation="fadeInLeft" data-delay=".8s">Learn More</a>
-                            <a href="industries.html" className="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Hire Me</a>
-                          </div> */}
                                         </div>
                                     </div>
                                 </div>

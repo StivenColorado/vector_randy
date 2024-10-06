@@ -17,7 +17,7 @@ export const Header = () => {
         <>
             <header>
                 <div className="header-area">
-                    <div className="main-header header-sticky" style={{ backgroundColor: '#fe3d3e' }}>
+                    <div className="main-header header-sticky" style={{ backgroundColor: 'rgb(226 126 95)' }}>
                         <div className="container-fluid">
                             <div className="row align-items-center">
                                 <div className="col-xl-2 col-lg-2 col-md-1">
@@ -43,7 +43,7 @@ export const Header = () => {
                                 </div>
                                 {/* Menú móvil */}
                                 <div className="col-12">
-                                    <div className={`mobile_menu d-block d-lg-none ${menuVisible ? 'menu-visible' : ''}`} style={{ backgroundColor: '#fe3d3e' }}>
+                                    <div className={`mobile_menu d-block d-lg-none ${menuVisible ? 'menu-visible' : ''}`} style={{ backgroundColor: 'rgb(226 126 95)' }}>
                                         <div className="slicknav_menu">
                                             <a
                                                 aria-haspopup="true"
@@ -61,7 +61,7 @@ export const Header = () => {
                                             <ul
                                                 className={`slicknav_nav ${menuVisible ? '' : 'd-none'}`}
                                                 aria-hidden={!menuVisible}
-                                                style={{background:'rgb(254 61 62)'}}
+                                                style={{background:'rgb(226 126 95)'}}
                                                 role="menu"
                                             >
                                                 <li>
